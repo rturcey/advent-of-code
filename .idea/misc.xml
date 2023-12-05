@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="Black">
+    <option name="enabledOnSave" value="true" />
+    <option name="sdkUUID" value="a21fd52e-3ff0-49db-bdde-c7672e9eeb8b" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_20" project-jdk-name="Python 3.10" project-jdk-type="Python SDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>

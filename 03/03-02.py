@@ -16,15 +16,11 @@ TEST_MAP = [
 
 
 def is_gear(char: str) -> bool:
-    if char == "*":
-        return True
-    return False
+    return char == "*"
 
 
 def is_outside(x: int, y: int, lines: list[str]):
-    if y < 0 or y >= len(lines) or x < 0 or x >= len(lines[y]):
-        return True
-    return False
+    return y < 0 or y >= len(lines) or x < 0 or x >= len(lines[y])
 
 
 def get_number(x: int, y: int, lines: list[str]) -> int:
