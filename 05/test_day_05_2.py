@@ -76,7 +76,7 @@ def test_get_lowest_location():
     expected = 46
     equivalences = get_equivalences(TEST_LINES)
     seeds = parse_seeds(TEST_LINES)
-    result = get_lowest_location(0, 50, equivalences, seeds, [], threading.Event())
+    result = get_lowest_location(0, 50, equivalences, seeds, [])
     assert result == expected
 
 
@@ -84,5 +84,5 @@ def test_get_lowest_location_part1():
     expected = 35
     equivalences = get_equivalences(TEST_LINES)
     seeds = parse_seeds(TEST_LINES, True)
-    result = get_lowest_location(0, 50, equivalences, seeds, [], threading.Event())
+    result = get_lowest_location(0, 50, equivalences, seeds, [])
     assert result == expected
