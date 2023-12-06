@@ -8,19 +8,14 @@ class Race:
 
 
 def parse_races(lines: list[str], part2=False) -> list[Race]:
-    if part2:
-        durations = [int(lines[0].split(":")[1].replace(" ", ""))]
-        record_distances = [int(lines[1].split(":")[1].replace(" ", ""))]
-    else:
-        durations = [int(d) for d in lines[0].split(":")[1].split(" ") if d]
-        record_distances = [int(r) for r in lines[1].split(":")[1].split(" ") if r]
+    numbers_list: list[list[int]] = []
+    for line in lines:
+        numbers = line.split(":")[1]
+        if part2:
+            numbers = numbers.replace(" ", "")
+        numbers_list.append([int(n) for n in numbers.split(" ") if n])
 
-    races: list[Race] = []
-
-    for i in range(0, len(durations)):
-        races.append(Race(durations[i], record_distances[i]))
-
-    return races
+    return [Race(i, j) for i, j in zip(*numbers_list)]
 
 
 def winning_race(hold: int, race: Race) -> bool:
