@@ -6,6 +6,7 @@ from day_05 import (
     apply_equivalences,
     compute_locations,
     get_lowest_location,
+    Range,
 )
 
 file = open("test_input.txt")
@@ -14,10 +15,10 @@ file.close()
 
 
 def test_equivalence_append_to_map():
-    expected = [{"src_start": 98, "src_stop": 100, "dst_start": 50, "length": 2}]
+    expected = [Range(src=98, dst=50, range=2)]
     equivalence = Equivalence("seed-to-soil")
     equivalence.append_to_map(TEST_LINES[3])
-    result = equivalence.conversion_map
+    result = equivalence.ranges
     assert result == expected
 
 

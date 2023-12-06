@@ -2,28 +2,39 @@ import re
 from dataclasses import dataclass
 
 
+@dataclass
+class Range:
+    src: int
+    dst: int
+    range: int
+
+    @property
+    def min(self):
+        return self.src
+
+    @property
+    def max(self):
+        return self.src + self.range
+
+    def __str__(self):
+        return f"Range({self.min},{self.max})"
+
+
 class Equivalence:
     def __init__(self, name: str):
         self.name = name
-        self.conversion_map: list[dict] = []
+        self.ranges: list[Range] = []
 
     def append_to_map(self, line: str):
         numbers = [int(n) for n in line.split(" ")]
         dst_start, src_start, length = numbers[0], numbers[1], numbers[2]
 
-        range_map = {
-            "src_start": src_start,
-            "src_stop": src_start + length,
-            "dst_start": dst_start,
-            "length": length,
-        }
-
-        self.conversion_map.append(range_map)
+        self.ranges.append(Range(src_start, dst_start, length))
 
     def convert(self, source: int) -> int:
-        for m in self.conversion_map:
-            if m["src_start"] <= source <= m["src_stop"]:
-                return m["dst_start"] + source - m["src_start"]
+        for r in self.ranges:
+            if r.min <= source <= r.max:
+                return r.dst + source - r.min
         return source
 
 
