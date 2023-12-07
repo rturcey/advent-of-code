@@ -108,5 +108,5 @@ def sum_scores(lines: list[str], part2 = False):
 if __name__ == '__main__':
     with open("input.txt") as file:
         lines = file.readlines()
-        # print(f"Part I - Result: {sum_scores(lines)}.")
+        print(f"Part I - Result: {sum_scores(lines)}.")
         print(f"Part II - Result: {sum_scores(lines, True)}.")
