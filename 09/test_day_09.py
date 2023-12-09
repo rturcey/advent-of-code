@@ -1,4 +1,4 @@
-from day_09 import Sequence, sum_last_of_first_sequences
+from day_09 import Sequence, sum_last_of_first_sequences, sum_first_of_first_sequences
 
 TEST_LINES = ["0 3 6 9 12 15", "1 3 6 10 15 21", "10 13 16 21 30 45"]
 
@@ -71,6 +71,6 @@ def test_sum_last_of_first_sequences():
 
 
 def test_sum_first_of_first_sequences():
-    expected = 114
-    result = sum_last_of_first_sequences(TEST_LINES)
+    expected = 2
+    result = sum_first_of_first_sequences(TEST_LINES)
     assert result == expected
